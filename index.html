@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html lang="en" class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
-    <title>Shuang Liu | 简约主页</title>
-    <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+    <title>Shuang Liu (刘爽) | Renmin University of China</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,600&amp;display=swap" rel="stylesheet">
+    <script src="translations.js" defer></script>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <style>
+      html.no-js body {
+        visibility: hidden;
+      }
       html, body {
         background: #f7f9fa;
         color: #222;
@@ -31,7 +35,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 24px;
-        height: 64px;
+        min-height: 64px;
       }
       .logo img {
         height: 38px;
@@ -50,10 +54,56 @@
         text-decoration: none;
         font-weight: 500;
         font-size: 16px;
+        white-space: nowrap;
         transition: color 0.2s;
       }
       .nav-menu li a:hover {
         color: #1c4fa1;
+      }
+      .main-menu > .row {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+      }
+      .language-switcher {
+        display: inline-flex;
+        flex-shrink: 0;
+        gap: 3px;
+        margin-left: 18px;
+        padding: 3px;
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .language-button {
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.8);
+        padding: 6px 14px;
+        min-width: 60px;
+        font: inherit;
+        font-size: 13px;
+        line-height: 1.2;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+      }
+      .language-button:hover,
+      .language-button:focus-visible {
+        color: #fff;
+        outline: 2px solid rgba(255, 255, 255, 0.75);
+        outline-offset: 1px;
+      }
+      .language-button.is-active {
+        background: #fff;
+        color: #022c68;
+        font-weight: 600;
+        transform: scale(1.03);
+      }
+      .language-switcher.no-anim .language-button {
+        transition: none;
       }
       .profile-section {
         background: #fff;
@@ -92,6 +142,45 @@
         color: #333;
         font-size: 1rem;
       }
+      .scholar-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .scholar-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 16px;
+        border-radius: 999px;
+        border: 1px solid #dbe2f0;
+        background: #f5f8fd;
+        color: #1c4fa1;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        line-height: 1.3;
+        transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+      }
+      .scholar-link svg {
+        width: 15px;
+        height: 15px;
+        flex-shrink: 0;
+      }
+      .scholar-link:hover,
+      .scholar-link:focus-visible {
+        background: #eaf0fb;
+        border-color: #b6c7ea;
+        box-shadow: 0 3px 10px rgba(28, 79, 161, 0.14);
+        transform: translateY(-1px);
+        color: #12386f;
+        outline: none;
+      }
+      .scholar-link:active {
+        transform: translateY(0);
+        box-shadow: none;
+      }
       section {
         margin-bottom: 36px;
       }
@@ -125,6 +214,22 @@
         font-size: 0.98em;
         margin-left: 8px;
       }
+      /* Most Conference/Journal-Report entries style the paper title and the
+         author's own highlighted name in dark grey/black (set inline on the
+         older, hand-formatted entries). A handful of newer entries omit that
+         inline style and fall back to the site-wide blue `.unordered-list b`
+         color, which reads as an inconsistency partway down each list. These
+         two rules bring those newer entries in line with the established
+         look; they're no-ops for entries that already set their own inline
+         color, since an inline style always wins over a stylesheet rule. */
+      #Conference .unordered-list > li > b,
+      #Journal-Report .unordered-list > li > b {
+        color: #303030;
+      }
+      #Conference .unordered-list p b,
+      #Journal-Report .unordered-list p b {
+        color: #0b0b0b;
+      }
       .container {
         max-width: 1100px;
         margin: 0 auto;
@@ -138,8 +243,41 @@
           align-items: flex-start;
           padding: 0 12px;
         }
+        .main-menu {
+          height: auto;
+          min-height: 64px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        .main-menu > .row {
+          flex-wrap: wrap;
+          gap: 10px 14px;
+        }
+        #nav-menu-container {
+          order: 3;
+          width: 100%;
+        }
+        .nav-menu {
+          flex-wrap: wrap;
+          gap: 8px 16px;
+        }
+        .language-switcher {
+          margin-left: auto;
+        }
         .profile-section {
           padding: 24px 8px;
+        }
+      }
+      @media (min-width: 801px) and (max-width: 1100px) {
+        .nav-menu {
+          flex-wrap: wrap;
+          gap: 6px 14px;
+        }
+        .nav-menu li a {
+          font-size: 14px;
+        }
+        .language-switcher {
+          margin-left: 6px;
         }
       }
       @media (max-width: 600px) {
@@ -156,6 +294,11 @@
         }
       }
     </style>
+    <noscript>
+      <style>
+        html.no-js body { visibility: visible; }
+      </style>
+    </noscript>
 </head>
 <body>
 <header id="header" class="" style="background: #022c68;">
@@ -169,14 +312,19 @@
             <nav id="nav-menu-container">
                 <ul class="nav-menu sf-js-enabled sf-arrows" style="color:white;touch-action: pan-y;">
                     <!-- <li><a href="http://info.ruc.edu.cn/index.htm" style="color:white;">Home</a></li> -->
-                    <li><a href="#Working-Experience" style="color:white;">Experience</a></li>
-                    <li><a href="#Professional-Services" style="color:white;">Services</a></li>
-                    <li><a href="#Projects" style="color:white;">Projects</a></li>
-                    <li><a href="#Honors-and-Awards" style="color:white;">Honors &amp; Awards</a></li>
-                    <li><a href="#Conference" style="color:white;">Publications</a></li>
-                    <li><a href="#Teaching" style="color:white;">Teaching</a></li>
+                    <li><a href="#Working-Experience" style="color:white;" data-i18n="nav.experience">Experience</a></li>
+                    <li><a href="#Professional-Services" style="color:white;" data-i18n="nav.services">Services</a></li>
+                    <li><a href="#Projects" style="color:white;" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="#Patents" style="color:white;" data-i18n="nav.patents">Patents</a></li>
+                    <li><a href="#Honors-and-Awards" style="color:white;" data-i18n="nav.honors">Honors &amp; Awards</a></li>
+                    <li><a href="#Conference" style="color:white;" data-i18n="nav.publications">Publications</a></li>
+                    <li><a href="#Teaching" style="color:white;" data-i18n="nav.teaching">Teaching</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
+            <div class="language-switcher" role="group" aria-label="Language selection">
+                <button type="button" class="language-button" data-language="zh" aria-pressed="false">中文</button>
+                <button type="button" class="language-button" data-language="en" aria-pressed="true">English</button>
+            </div>
         </div>
     </div>
 </header><!-- #header -->
@@ -191,22 +339,30 @@
             <div class="profile-info">
                 <div>
                     <h1 style="color: #022c68; margin-bottom: 0;">Shuang Liu (刘爽)</h1>
-                    <h4 style="color: #022c68; margin-bottom: 0;">School of Information, Renmin University of China</h4>
-                    <h4 style="color: #022c68; margin-bottom: 0;">Shuang.Liu at ruc dot edu dot cn</h4>
+                    <h4 style="color: #022c68; margin-bottom: 0;" data-i18n="profile.affiliation">School of Information, Renmin University of China</h4>
+                    <h4 style="color: #022c68; margin-bottom: 0;" data-i18n="profile.title">Associate Professor · Ph.D. Supervisor · Wu Yuzhang Young Scholar</h4>
+                    <h4 style="color: #022c68; margin-bottom: 0;" data-i18n="profile.email">shuang.liu at ruc dot edu dot cn</h4>
                 </div>
-                <div class="profile-desc"></div>
-                    <h3 style="padding-bottom: 15px;">Profile</h3>
-                    <p style="max-width: 700px; font-size: 16px; line-height: 1.5;">
-                        Shuang Liu (DBLP ID: Shuang Liu 0007) is currently an associate professor at the School of Information, Renmin University of China. She worked at Tianjin University and Singapore Institute of Technology (SiT) before joining Renmin University. Shuang received her Ph.D. degree from the National University of Singapore and her Bachelor of Honor from Renmin University. Shuang’s research interests include SE4AI and AI4SE, DB4AI. She has published 60+ papers on top-tier international conferences and journals, including TSE, ESEC/FSE, ASE, Usenix Security, PVLDB and FM. She serves as a program committee member of multiple international conferences and reviewers of multiple international journals.
+                <div class="profile-desc">
+                    <h3 style="padding-bottom: 15px;" data-i18n="profile.bioHeading">Profile</h3>
+                    <p style="max-width: 700px; font-size: 16px; line-height: 1.5;" data-i18n="profile.bio">
+                        Shuang Liu is a Wu Yuzhang Young Scholar, Ph.D. supervisor, and associate professor at Renmin University of China. She is an executive committee member of the CCF Technical Committees on System Software and on Databases, and received her Ph.D. from the National University of Singapore. Her research focuses on complex-system testing, database testing, large-model testing, and related directions. She has published more than 70 papers in international venues such as PVLDB, ICDE, ISSTA, ESEC/FSE, ASE, ICSE, FM, USENIX Security, TSE, TOSEM, and the Journal of Software (including more than 30 CCF-A papers), and received the ESEC/FSE 2020 (CCF-A) Best Paper Award. She teaches several core computer-science courses, including Compiler Principles (Honors Course) and Software Engineering, and serves on multiple conference program committees and as a journal reviewer. She leads multiple funded projects, including an NSFC General Program grant, a subproject of a national science and technology major program, an NSFC Youth Program grant, and the CCF-Ant Joint Research Fund.
                     </p>
+                    <div class="scholar-links">
+                        <a class="scholar-link" href="https://scholar.google.com/citations?hl=en&amp;user=-cw2GtwAAAAJ" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5 12 4l10 5.5-10 5.5L2 9.5Z"/><path d="M6 12v5c0 1.3 2.7 3 6 3s6-1.7 6-3v-5"/><path d="M21 9.5V16"/></svg>
+                            <span>Google Scholar</span>
+                        </a>
+                        <a class="scholar-link" href="https://www.semanticscholar.org/author/Shuang-Liu/144439461?sort=influence" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v4h4"/><path d="M9 12.5h6M9 15.5h6M9 9.5h3"/></svg>
+                            <span>Semantic Scholar</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <style>
-    .profile-section {
-        padding: 40px 0;
-    }
     .profile-container {
         display: flex;
         align-items: center;
@@ -259,20 +415,16 @@
         }
     }
     </style>
-   
     
-    </style>
     <section id="News" class="section-gap testimonial-area">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-70 col-lg-10">
-                    <div class="title text-center"><h1 class="mb-10">News</h1>
+                    <div class="title text-center"><h1 class="mb-10" data-i18n="heading.News">News</h1>
                         <p></p></div>
                     <div>
                         <ul class="unordered-list">
-                            <li style="margin-bottom: 10px;"><!----> <b
-                                    style="color: #303030; font-weight: bold;">to be updated</b> <!----> <!---->
-                                <!----> <!----> <!----> <p><!----></p></li>
+                            <li data-i18n="list.News.2"><b>2024</b> — Selected as a Wu Yuzhang Young Scholar at Renmin University of China.</li>
                         </ul>
                     </div>
                 </div>
@@ -283,31 +435,34 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-70 col-lg-10">
-                    <div class="title text-center"><h1 class="mb-10">Working Experience</h1>
+                    <div class="title text-center"><h1 class="mb-10" data-i18n="heading.Working-Experience">Working Experience</h1>
                         <p></p></div>
                     <div>
                         <ul class="unordered-list">
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li style="margin-bottom: 10px;" data-i18n="list.Working-Experience.0"><!----> <b
                                     style="color: #303030; font-weight: bold;">Renmin University of China</b> <!---->
-                                <span style="color: #8490ff; padding-left: 5px;">January 2024-Now</span>
-                                <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">Associate Professor</p>
+                                <span style="color: #8490ff; padding-left: 5px;">January 2024 - Present</span>
+                                <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">Associate Professor · Ph.D. Supervisor</p>
                                 <!----> <p><!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li style="margin-bottom: 10px;" data-i18n="list.Working-Experience.1"><!----> <b
                                     style="color: #303030; font-weight: bold;">Tianjin University</b> <!---->
                                 <span style="color: #8490ff; padding-left: 5px;">October 2017-December 2023</span>
                                 <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">Associate Professor</p>
                                 <!----> <p><!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li style="margin-bottom: 10px;" data-i18n="list.Working-Experience.2"><!----> <b
                                     style="color: #303030; font-weight: bold;">Singapore Institute of
-                                Technology</b> <!----> <span style="color: #8490ff; padding-left: 5px;">June 2016 - October 2017</span>
+                                Technology</b> <!----> <span style="color: #8490ff; padding-left: 5px;">June 2016 - September 2017</span>
                                 <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">Lecturer</p> <!----> <p>
                                     <!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li style="margin-bottom: 10px;" data-i18n="list.Working-Experience.3"><!----> <b
                                     style="color: #303030; font-weight: bold;">Singapore University of
                                 Technology and Design</b> <!----> <span
-                                    style="color: #8490ff; padding-left: 5px;">July 2015 - May 2016</span>
+                                    style="color: #8490ff; padding-left: 5px;">August 2015 - May 2016</span>
                                 <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">Postdoc Research Fellow</p>
                                 <!----> <p><!----></p></li>
+                            <li style="margin-bottom: 10px;" data-i18n="list.Working-Experience.4"><b style="color: #303030; font-weight: bold;">Singapore University of Technology and Design</b>
+                                <span style="color: #8490ff; padding-left: 5px;">August 2014 - July 2015</span>
+                                <p style="padding-bottom: 0px; margin-bottom: 0px;">Research Assistant</p></li>
                         </ul>
                     </div>
                 </div>
@@ -318,18 +473,18 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-70 col-lg-10">
-                    <div class="title text-center"><h1 class="mb-10">Education</h1>
+                    <div class="title text-center"><h1 class="mb-10" data-i18n="heading.Education">Education</h1>
                         <p></p></div>
                     <div>
                         <ul class="unordered-list">
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li style="margin-bottom: 10px;" data-i18n="list.Education.0"><!----> <b
                                     style="color: #303030; font-weight: bold;">National University of
-                                Singapore</b> <!----> <span style="color: #8490ff; padding-left: 5px;">2010 - 2015</span>
-                                <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">Ph.D.</p> <!----> <p>
+                                Singapore</b> <!----> <span style="color: #8490ff; padding-left: 5px;">August 2010 - June 2015</span>
+                                <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">Ph.D. in Computer Science · Software Testing and Verification</p> <!----> <p>
                                     <!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li style="margin-bottom: 10px;" data-i18n="list.Education.1"><!----> <b
                                     style="color: #303030; font-weight: bold;">Renmin University of China</b>
-                                <!----> <span style="color: #8490ff; padding-left: 5px;">2006 - 2010</span>
+                                <!----> <span style="color: #8490ff; padding-left: 5px;">September 2006 - July 2010</span>
                                 <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">B.Eng.</p> <!----> <p>
                                     <!----></p></li>
                         </ul>
@@ -342,22 +497,22 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-70 col-lg-10">
-                    <div class="title text-center"><h1 class="mb-10">Professional Services</h1>
+                    <div class="title text-center"><h1 class="mb-10" data-i18n="heading.Professional-Services">Professional Services</h1>
                         <p></p></div>
                     <div>
                         <ul class="unordered-list">
-                            <li style="margin-bottom: 10px;"><!----> <b
-                                    style="color: #303030; font-weight: bold;">Publication Chair of ICPADS
-                                2019</b> <!----> <!----> <!----> <!----> <!----> <p><!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
-                                    style="color: #303030; font-weight: bold;">PC member of the following
-                                conferences: ICECCS 2018, ICFEM 2019, SETTA2019, ICECCS 2019, ICECCS 2020, ICFEM
-                                2020</b> <!----> <!----> <!----> <!----> <!----> <p><!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li style="margin-bottom: 10px;" data-i18n="list.Professional-Services.0"><b style="color: #303030; font-weight: bold;">Publication Chair</b>
+                                <p style="margin-bottom: 0;">ICPADS 2019; NDBC 2026</p></li>
+                            <li style="margin-bottom: 10px;" data-i18n="list.Professional-Services.1"><!----> <b
+                                    style="color: #303030; font-weight: bold;">Program Committee Member</b>
+                                <p style="margin-bottom: 0;">ICECCS 2018, ICECCS 2019, ICFEM 2019, SETTA 2019, ICECCS 2020, ICECCS 2022, ASE Student Research Competition 2022, ICSE 2023 CORE, SETTA 2023, Internetware 2026, SETTA 2026, and ICDE 2026</p></li>
+                            <li style="margin-bottom: 10px;" data-i18n="list.Professional-Services.2"><b style="color: #303030; font-weight: bold;">Project Advisor, OpenTeleDB Database Open-Source Community Advisory Board</b>
+                                <span style="color: #8490ff; padding-left: 5px;">2025 - 2026</span></li>
+                            <li style="margin-bottom: 10px;" data-i18n="list.Professional-Services.3"><!----> <b
                                     style="color: #303030; font-weight: bold;">Reviewer of the following
                                 journals: TOSEM, ISSE, Computing and Informatics, Journal of Systems and Software</b>
                                 <!----> <!----> <!----> <!----> <!----> <p><!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li style="margin-bottom: 10px;" data-i18n="list.Professional-Services.4"><!----> <b
                                     style="color: #303030; font-weight: bold;">Reviewer of the following
                                 conferences: ICSE, TASE, ICFEM, APSEC, SEFM, ISORC, FTSCS, ACM SAC, ACOMP, SVT, CAI</b>
                                 <!----> <!----> <!----> <!----> <!----> <p><!----></p></li>
@@ -371,35 +526,81 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-70 col-lg-10">
-                    <div class="title text-center"><h1 class="mb-10">Projects</h1>
+                    <div class="title text-center"><h1 class="mb-10" data-i18n="heading.Projects">Projects</h1>
                         <p></p></div>
                     <div>
                         <ul class="unordered-list">
-                            <li style="margin-bottom: 10px;"><!----> <b
-                                    style="color: #303030; font-weight: bold;">R&amp;D of driving scene data
-                                management platform for intelligent connected vehicle simulation test</b> <!---->
-                                <!----> <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">2020 - 2021</p>
-                                <!----> <p><!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
-                                    style="color: #303030; font-weight: bold;">Concurrency Bug Detection and
-                                Fixing Key Techniques</b> <!----> <span
-                                    style="color: #8490ff; padding-left: 5px;">2019 - 2021</span> <!----> <p
-                                    style="padding-bottom: 0px; margin-bottom: 0px;">NSFC Project</p> <!----> <p>
-                                <!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
-                                    style="color: #303030; font-weight: bold;">Network Anomaly Detection and
-                                Localization Key Techniques</b> <!----> <span
-                                    style="color: #8490ff; padding-left: 5px;">2019 - 2021</span> <!----> <p
-                                    style="padding-bottom: 0px; margin-bottom: 0px;">NSFC Key Projects</p> <!----> <p>
-                                <!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
-                                    style="color: #303030; font-weight: bold;">Research on Key Techniques to
-                                Automatically Interpret and Present Android Privacy Policy(PI)</b> <!----> <span
-                                    style="color: #8490ff; padding-left: 5px;">2019 - 2021</span> <!----> <p
-                                    style="padding-bottom: 0px; margin-bottom: 0px;">NSFC Youth Projects</p> <!----> <p>
-                                <!----></p></li>
+                            <li data-i18n="list.Projects.0"><b>Testing Methods for Silent Bugs in NewSQL Databases</b>
+                                <span>January 2025 - December 2028</span>
+                                <p>National Natural Science Foundation of China General Program · Principal Investigator</p></li>
+                            <li data-i18n="list.Projects.1"><b>Trusted Verification for SGX-based Cloud-Native HTAP Databases</b>
+                                <span>September 2024 - August 2025</span>
+                                <p>CCF-Ant Research Fund · Principal Investigator</p></li>
+                            <li data-i18n="list.Projects.2"><b>Key Technologies for Material-Data Aggregation, Integration, and Visualization</b>
+                                <span>July 2025 - June 2028</span>
+                                <p>National Science and Technology Major Project, subproject · Principal Investigator</p></li>
+                            <li data-i18n="list.Projects.3"><b>Transaction Dependency Graph-based OLTP Database Testing</b>
+                                <span>September 2024 - August 2027</span>
+                                <p>Renmin University of China Research Fund · Principal Investigator</p></li>
+                            <li data-i18n="list.Projects.4"><b>Adaptive Storage-Scheme Selection for Cloud-Native HTAP Databases</b>
+                                <span>December 2025 - December 2026</span>
+                                <p>Tencent Cloud · Principal Investigator</p></li>
+                            <li data-i18n="list.Projects.5"><b>Automatic Interpretation and Presentation of Android Privacy Policies</b>
+                                <span>January 2019 - December 2021</span>
+                                <p>National Natural Science Foundation of China Youth Program · Principal Investigator</p></li>
+                            <li data-i18n="list.Projects.6"><b>Key Technologies for Natural-Language Understanding in Hisense Cloud Brain</b>
+                                <span>May 2020 - December 2020</span>
+                                <p>Industry-sponsored project · Principal Investigator</p></li>
+                            <li data-i18n="list.Projects.7"><b>Model Anomaly Detection for Cyber-Physical Systems with Missing Anomaly Information</b>
+                                <span>January 2019 - December 2021</span>
+                                <p>Tianjin University Independent Innovation Fund · Principal Investigator</p></li>
+                            <li data-i18n="list.Projects.8"><b>Key Technologies for Functional Testing of Database Management Systems</b>
+                                <span>August 2022 - July 2024</span>
+                                <p>Open Project of the Key Laboratory of High-Confidence Software Technologies · Principal Investigator</p></li>
+                            <li data-i18n="list.Projects.9"><b>Rapid Detection, Localization, and High-quality Automatic Patch Generation for Concurrency Bugs</b>
+                                <span>January 2019 - December 2022</span>
+                                <p>National Natural Science Foundation of China General Program · Participant</p></li>
+                            <li data-i18n="list.Projects.10"><b>Network Anomaly Behavior Detection and Localization</b>
+                                <span>January 2019 - December 2022</span>
+                                <p>National Natural Science Foundation of China Key Program · Participant</p></li>
+                            <li data-i18n="list.Projects.11"><b>Key Network-Security Technologies for Media Communication</b>
+                                <span>November 2020 - September 2022</span>
+                                <p>People's Daily Online · Participant</p></li>
+                            <li data-i18n="list.Projects.12"><b>Database Customer-Scenario Profiling Based on Machine Learning</b>
+                                <span>January 2024 - July 2025</span>
+                                <p>Huawei Cloud · Participant</p></li>
+                            <li data-i18n="list.Projects.13"><b>Efficient Multi-writer Optimization through Transaction Reordering for OLTP Database Appliances</b>
+                                <span>January 2025 - December 2025</span>
+                                <p>China Mobile · Participant</p></li>
+                            <li data-i18n="list.Projects.14"><b>RUC-Kingbase Joint Laboratory 2026 Project</b>
+                                <span>January 2026 - December 2026</span>
+                                <p>Kingbase · Participant</p></li>
+                            <li data-i18n="list.Projects.15"><b>RUC-Tencent Collaborative Innovation Laboratory 2025-2026 Project</b>
+                                <span>January 2026 - December 2026</span>
+                                <p>Tencent Technology · Participant</p></li>
+                            <li data-i18n="list.Projects.16"><b>Large-model Training and Inference Frameworks</b>
+                                <span>October 2025 - September 2028</span>
+                                <p>Xiaomi · Participant</p></li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Patents" class="section-gap home-about-area">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-70 col-lg-10">
+                    <div class="title text-center"><h1 class="mb-10" data-i18n="heading.Patents">Patents</h1></div>
+                    <ul class="unordered-list">
+                        <li data-i18n="list.Patents.0"><b>刘爽，窦淑洁</b><p>一种基于组合语义的机器翻译软件缺陷检测方法</p></li>
+                        <li data-i18n="list.Patents.1"><b>刘爽，冷林珊，田承霖</b><span>2024.05.07 · CN113986345B</span><p>一种预训练增强的代码克隆检测方法</p></li>
+                        <li data-i18n="list.Patents.2"><b>刘爽，涂钰</b><span>2024.04.30 · CN11563087B</span><p>一种基于编码特征与统计行为特征融合的 DNS 隧道检测方法</p></li>
+                        <li data-i18n="list.Patents.3"><b>刘爽，杨怀伟</b><span>2022.04.19 · CN113051607B</span><p>一种隐私政策信息提取方法</p></li>
+                        <li data-i18n="list.Patents.4"><b>刘爽，陈冠宏</b><span>2022.11.01 · CN113434858B</span><p>基于反汇编代码结构和语义特征的恶意软件家族分类方法</p></li>
+                        <li data-i18n="list.Patents.5"><b>陈俊洁，闫明，王赞，刘爽，张栋迪</b><span>2023.04.18 · CN112183749B</span><p>基于有导向模型变异的深度学习库测试方法</p></li>
+                        <li data-i18n="list.Patents.6"><b>沐燕舟，王赞，刘爽</b><span>2022.05.17 · CN113468047B</span><p>基于启发式规则的并发式自适应随机测试方法</p></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -408,37 +609,47 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-70 col-lg-10">
-                    <div class="title text-center"><h1 class="mb-10">Honors and Awards</h1>
+                    <div class="title text-center"><h1 class="mb-10" data-i18n="heading.Honors-and-Awards">Honors and Awards</h1>
                         <p></p></div>
                     <div>
                         <ul class="unordered-list">
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li data-i18n="list.Honors-and-Awards.0"><b>Outstanding Advisor Award, National Student Computer System Capability Competition — Compiler Design Track</b><span>2025</span></li>
+                            <li data-i18n="list.Honors-and-Awards.1"><b>Wu Yuzhang Young Scholar, Renmin University of China</b><span>2024</span></li>
+                            <li data-i18n="list.Honors-and-Awards.2"><b>CCF Prototype System Competition Award (SANER 2022)</b><span>2022</span>
+                                <p>Natural Test Generation for Precise Testing of Question Answering Software</p></li>
+                            <li data-i18n="list.Honors-and-Awards.3"><b>Outstanding Undergraduate Thesis Advisor, Tianjin University</b><span>2021</span></li>
+                            <li data-i18n="list.Honors-and-Awards.4"><b>Shen Zhikang Teaching Award, Tianjin University</b><span>2021</span></li>
+                            <li data-i18n="list.Honors-and-Awards.5"><b>Outstanding Reviewer, Journal of Software</b><span>2020</span></li>
+                            <li style="margin-bottom: 10px;" data-i18n="list.Honors-and-Awards.6"><!----> <b
                                     style="color: #303030; font-weight: bold;">ACM SigSoft Distinguish Paper
                                 Award</b> <!----> <span
                                     style="color: #8490ff; padding-left: 5px;">2020</span> <!----> <p
                                     style="padding-bottom: 0px; margin-bottom: 0px;">ACM</p> <!----> <p><!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li style="margin-bottom: 10px;" data-i18n="list.Honors-and-Awards.7"><!----> <b
                                     style="color: #303030; font-weight: bold;">MAPTest: An Automatic Platform
                                 for Testing Java Thread-Safe Classes based on MAP-Coverage.First Prize of Prototype
                                 Competition</b> <!----> <span style="color: #8490ff; padding-left: 5px;">2019.11.24</span>
                                 <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">China Computer
                                     Federation</p> <!----> <p><!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li style="margin-bottom: 10px;" data-i18n="list.Honors-and-Awards.8"><!----> <b
                                     style="color: #303030; font-weight: bold;">Second Prize of Best Exhibition
                                 Award</b> <!----> <span
                                     style="color: #8490ff; padding-left: 5px;">2019.11.24</span> <!----> <p
                                     style="padding-bottom: 0px; margin-bottom: 0px;">China Computer Federation</p>
                                 <!----> <p><!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li style="margin-bottom: 10px;" data-i18n="list.Honors-and-Awards.9"><!----> <b
                                     style="color: #303030; font-weight: bold;">ACM TOSEM Distinguished
                                 Referee</b> <!----> <span style="color: #8490ff; padding-left: 5px;">2017 - 2018</span>
                                 <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">ACM TOSEM Outstanding
                                     Jury</p> <!----> <p><!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
+                            <li style="margin-bottom: 10px;" data-i18n="list.Honors-and-Awards.10"><!----> <b
                                     style="color: #303030; font-weight: bold;">ACM TOSEM Distinguished
                                 Referee</b> <!----> <span style="color: #8490ff; padding-left: 5px;">2015 - 2016</span>
                                 <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">ACM TOSEM Outstanding
                                     Jury</p> <!----> <p><!----></p></li>
+                            <li data-i18n="list.Honors-and-Awards.11"><b>National University of Singapore Scholarship</b><span>2010 - 2014</span></li>
+                            <li data-i18n="list.Honors-and-Awards.12"><b>National Scholarship</b><span>2009</span></li>
+                            <li data-i18n="list.Honors-and-Awards.13"><b>National Scholarship</b><span>2008</span></li>
                         </ul>
                     </div>
                 </div>
@@ -449,10 +660,48 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-70 col-lg-10">
-                    <div class="title text-center"><h1 class="mb-10">Conference</h1>
+                    <div class="title text-center"><h1 class="mb-10" data-i18n="heading.Conference">Conference</h1>
                         <p></p></div>
                     <div>
                         <ul class="unordered-list">
+                            <li><span>[ICSE 2026]</span> <b>DBcover: A White-box SQL Test Generation Framework for Coverage Improvement</b>
+                                <a href="https://arxiv.org/pdf/2608.25573" target="_blank" rel="noopener">[pdf]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p>Yankai Rong, <b>Shuang Liu*</b>, Jinhao Dong, Qiang Yin, Wei Lu, Jianhua Wang, and Xiaoyong Du</p></li>
+                            <li><span>[ICDE 2026]</span> <b>Doux: Decoupling Values from Keys for Real-Time Analytics</b>
+                                <a href="https://dblp.org/rec/conf/icde/YangLLLLCPZD26" target="_blank" rel="noopener">[link]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p>Shiming Yang, Yu Luo, <b>Shuang Liu*</b>, Wei Lu, Kuien Liu, Yuxing Chen, Anqun Pan, Lixiong Zheng, and Xiaoyong Du</p></li>
+                            <li><span>[ASE 2026]</span> <b>DBRepro: Automated Database Synthesis via a Hybrid Constraint-Solving Approach for Reproducing Slow Queries</b>
+                                <a href="https://arxiv.org/pdf/2608.27822" target="_blank" rel="noopener">[pdf]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p>Zhaoyang Zhang, <b>Shuang Liu*</b>, Dengfeng Xu, Wei Lu, Jianquan Leng, Sheng Du, and Xiaoyong Du</p></li>
+                            <li><span>[ICDE 2026]</span> <b>DBdoctor: A Fine-grained and Non-intrusive Performance Diagnosis Platform for Databases</b>
+                                <a href="https://dblp.org/rec/conf/icde/ShiXWZBLZLZZCD26" target="_blank" rel="noopener">[link]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p>Xinyue Shi, Quanqi Xin, Zhengjin Wang, Xinyi Zhang, Haoqiong Bian, Wei Lu, Qiyu Zhuang, <b>Shuang Liu</b>, Jikuan Zhang, Xiang Zheng, Yunpeng Chai, and Xiaoyong Du</p></li>
+                            <li><span>[ESEC/FSE 2025]</span> <b>De-duplicating Silent Compiler Bugs via Deep Semantic Representation</b>
+                                <a href="https://ink.library.smu.edu.sg/sis_research/10289/" target="_blank" rel="noopener">[paper]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p>Junjie Chen, Xingyu Fan, Chen Yang, <b>Shuang Liu</b>, and Jun Sun</p></li>
+                            <li><span>[PVLDB 2025]</span> <b>TxnSails: Achieving Serializable Transaction Scheduling with Self-Adaptive Isolation Level Selection</b>
+                                <a href="https://www.vldb.org/pvldb/vol18/p4227-lu.pdf" target="_blank" rel="noopener">[pdf]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p>Qiyu Zhuang, Wei Lu, <b>Shuang Liu</b>, Yuxing Chen, Xinyue Shi, Zhanhao Zhao, Yipeng Sun, Anqun Pan, and Xiaoyong Du</p></li>
+                            <li><span>[PVLDB 2025]</span> <b>Chimera: Mitigating Ownership Transfers in Multi-Primary Shared-Storage Cloud-Native Databases</b>
+                                <a href="https://www.vldb.org/pvldb/vol18/p3368-chunyue.pdf" target="_blank" rel="noopener">[pdf]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p>Chunyue Huang, <b>Shuang Liu</b>, Xinyi Zhang, Wenhao Li, Wei Lu, and Xiaoyong Du</p></li>
+                            <li><span>[ICDE 2025]</span> <b>GeoTP: Latency-aware Geo-Distributed Transaction Processing in Database Middlewares</b>
+                                <a href="https://ieeexplore.ieee.org/abstract/document/11113150" target="_blank" rel="noopener">[pdf]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p>Qiyu Zhuang, Xinyue Shi, <b>Shuang Liu</b>, Wei Lu, Zhanhao Zhao, Yuxing Chen, Tong Li, Anqun Pan, and Xiaoyong Du</p></li>
+                            <li><span>[IDE 2024]</span> <b>I3DE: An IDE for Inspecting Inconsistencies in PL/SQL Code</b>
+                                <a href="https://dl.acm.org/doi/abs/10.1145/3643796.3648461" target="_blank" rel="noopener">[pdf]</a>
+                                <p>Jiangshan Liu, <b>Shuang Liu*</b>, and Junjie Chen</p></li>
+                            <li><span>[EnCyCriS/SVM 2024]</span> <b>WasmCFuzz: Structure-aware Fuzzing for Wasm Compilers</b>
+                                <a href="https://dl.acm.org/doi/abs/10.1145/3643662.3643959" target="_blank" rel="noopener">[pdf]</a>
+                                <p>Xiangwei Zhang, Junjie Wang, Xiaoning Du, and <b>Shuang Liu</b></p></li>
                             <li style="margin-bottom: 10px;"><span
                                     style="color: #8490ff; padding-right: 5px;">[PVLDB’25] </span> <b
                                     style="color: #303030; font-weight: bold;">Semantic Conformance Testing of Relational DBMS .</b> <span><a
@@ -466,7 +715,7 @@
                             <li style="margin-bottom: 10px;"><span
                                     style="color: #8490ff; padding-right: 5px;">[ISSTA’24] </span> <b
                                     style="color: #303030; font-weight: bold;">Testing Graph Databases with Graph-State Persistence Oracle .</b> <span><a
-                                    href="papers/Testing Graph Databases with Graph-State Persistence Oracle.pdf">[pdf]</a></span>
+                                    href="papers/Testing Graph Database Systems with Graph-State Persistence Oracle.pdf">[pdf]</a></span>
                                 <!----> <span class="float-right" style="color: #8490ff;">(CCF-A)</span>
                                 <!----> <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">  <b style="color: #0b0b0b; font-weight: bold">Shuang Liu</b>, Junhao Lan, Xiaoning Du, Jiyuan Li, Wei Lu, Jiajun Jiang and Xiaoyong Du 
                                         </p>
@@ -932,10 +1181,34 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-70 col-lg-10">
-                    <div class="title text-center"><h1 class="mb-10">Journal/Report</h1>
+                    <div class="title text-center"><h1 class="mb-10" data-i18n="heading.Journal-Report">Journal/Report</h1>
                         <p></p></div>
                     <div>
                         <ul class="unordered-list">
+                            <li><span>[Automated Software Engineering 2026]</span> <b>ByteEye: A Smart Contract Vulnerability Detection Framework at Bytecode Level with Graph Neural Networks</b>
+                                <a href="https://link.springer.com/article/10.1007/s10515-025-00559-9" target="_blank" rel="noopener">[open access]</a>
+                                <span class="float-right">(CCF-B)</span>
+                                <p>Jinni Yang, <b>Shuang Liu*</b>, Surong Dai, Yaozheng Fang, Kunpeng Xie, and Ye Lu*</p></li>
+                            <li><span>[TSE 2025]</span> <b>A Comprehensive Study of Bugs in Relational DBMS</b>
+                                <a href="https://doi.org/10.1109/TSE.2025.3625300" target="_blank" rel="noopener">[doi]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p><b>Shuang Liu</b>, Ruifeng Wang, Yuanfeng Xie, Junjie Chen, Wei Lu, Xiao Zhang*, Quanqing Xu, Chuanhui Yang, and Xiaoyong Du</p></li>
+                            <li><span>[TVCG 2025]</span> <b>PolyGraph: A Graph-based Method for Floorplan Reconstruction from 3D Scans</b>
+                                <a href="https://doi.org/10.1109/TVCG.2025.3544769" target="_blank" rel="noopener">[doi]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p>Qian Sun, Chenrong Fang, <b>Shuang Liu</b>, Yidan Sun, Yu Shang, and Ying He</p></li>
+                            <li><span>[TSE 2025]</span> <b>Mitigating Regression Faults Induced by Feature Evolution in Deep Learning Systems</b>
+                                <a href="papers/Mitigating Regression Faults Induced by Feature Evolution in Deep Learning Systems.pdf">[pdf]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p>Hanmo You, Zan Wang, Xuyang Chen, Junjie Chen, Jun Sun, <b>Shuang Liu</b>, and Zishuo Dong</p></li>
+                            <li><span>[The VLDB Journal 2025]</span> <b>An Efficient and Scalable Graph Database with Built-in Temporal Support</b>
+                                <a href="https://doi.org/10.1007/s00778-025-00932-w" target="_blank" rel="noopener">[doi]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p>Jiamin Hou, Zhanhao Zhao, Wei Lu, Shiming Yang, <b>Shuang Liu</b>, Quanqing Xu, Chuanhui Yang, and Xiaoyong Du</p></li>
+                            <li><span>[Computational Linguistics 2024]</span> <b>LLM-assisted Data Augmentation for Chinese Dialogue-level Dependency Parsing</b>
+                                <a href="https://aclanthology.org/anthology-files/pdf/cl/2024.cl-3.2.pdf" target="_blank" rel="noopener">[pdf]</a>
+                                <span class="float-right">(CCF-A)</span>
+                                <p>Meishan Zhang, Gongyao Jiang, <b>Shuang Liu</b>, Jing Chen, and Min Zhang</p></li>
                             <li style="margin-bottom: 10px;"><span
                                     style="color: #8490ff; padding-right: 5px;">[TSE'23]</span> <b
                                     style="color: #303030; font-weight: bold;">Differential Testing of Machine Translators based on Compositional Semantics .</b> <span><a
@@ -1126,18 +1399,16 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-70 col-lg-10">
-                    <div class="title text-center"><h1 class="mb-10">Teaching</h1>
+                    <div class="title text-center"><h1 class="mb-10" data-i18n="heading.Teaching">Teaching</h1>
                         <p></p></div>
                     <div>
                         <ul class="unordered-list">
-                            <li style="margin-bottom: 10px;"><!----> <b
-                                    style="color: #303030; font-weight: bold;">Theory of Compilation</b> <!---->
-                                <!----> <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">2018 Fall, 2019
-                                    Fall, 2020 Spring</p> <!----> <p><!----></p></li>
-                            <li style="margin-bottom: 10px;"><!----> <b
-                                    style="color: #303030; font-weight: bold;">Introduction to Software
-                                Testing</b> <!----> <!----> <!----> <p style="padding-bottom: 0px; margin-bottom: 0px;">
-                                2018 Spring, 2019 Spring, 2020 Spring</p> <!----> <p><!----></p></li>
+                            <li style="margin-bottom: 10px;" data-i18n="list.Teaching.0"><!----> <b
+                                    style="color: #303030; font-weight: bold;">Compiler Principles (Honors Course)</b>
+                                <p style="padding-bottom: 0px; margin-bottom: 0px;">Core undergraduate course</p></li>
+                            <li style="margin-bottom: 10px;" data-i18n="list.Teaching.1"><!----> <b
+                                    style="color: #303030; font-weight: bold;">Software Engineering</b>
+                                <p style="padding-bottom: 0px; margin-bottom: 0px;">Core undergraduate course</p></li>
                         </ul>
                     </div>
                 </div>
@@ -1150,35 +1421,12 @@
 <!-- start footer Area -->
 <footer class="footer-area section-gap">
     <p class="footer-text text-center">
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-        All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                                            aria-hidden="true"></i> by <a
-            href="https://colorlib.com" target="_blank">Colorlib</a>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        &copy; <span id="copyright-year"></span> Shuang Liu. <span id="footer-rights" data-i18n="footer.rights">All rights reserved.</span>
+        <span id="template-credit" data-i18n="footer.credit">Template by <a href="https://colorlib.com" target="_blank" rel="noopener">Colorlib</a>.</span>
+    </p>
 
 </footer>
 <!-- End footer Area -->
-
-<script src="../js/vendor/jquery-2.2.4.min.js"></script>
-<script src="../js/popper.min.js"></script>
-<script src="../js/vendor/bootstrap.min.js"></script>
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>-->
-<script src="../js/easing.min.js"></script>
-<script src="../js/hoverIntent.js"></script>
-<script src="../js/superfish.min.js"></script>
-<script src="../js/jquery.ajaxchimp.min.js"></script>
-<script src="../js/jquery.magnific-popup.min.js"></script>
-<script src="../js/jquery.tabs.min.js"></script>
-<script src="../js/jquery.nice-select.min.js"></script>
-<script src="../js/isotope.pkgd.min.js"></script>
-<script src="../js/waypoints.min.js"></script>
-<script src="../js/jquery.counterup.min.js"></script>
-<script src="../js/simple-skillbar.js"></script>
-<script src="../js/owl.carousel.min.js"></script>
-<script src="../js/mail-script.js"></script>
-<script src="../js/main.js"></script>
-
 
 </body>
 
