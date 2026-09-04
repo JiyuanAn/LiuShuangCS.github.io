@@ -253,8 +253,8 @@
             "zh": "<b>沐燕舟，王赞，刘爽</b><span>2022.05.17 · CN113468047B</span><p>基于启发式规则的并发式自适应随机测试方法</p>"
         },
         "list.Honors-and-Awards.0": {
-            "en": "<b>Outstanding Advisor Award, National Student Computer System Capability Competition — Compiler Design Track</b><span>2025</span>",
-            "zh": "<b>全国大学生计算机系统能力大赛编译系统设计赛优秀指导教师奖</b><span>2025</span>"
+            "en": "<b>Outstanding Advisor Award, National Student Computer System Capability Competition — Compiler Design Track</b><span>2025, 2026</span>",
+            "zh": "<b>全国大学生计算机系统能力大赛编译系统设计赛优秀指导教师奖</b><span>2025, 2026</span>"
         },
         "list.Honors-and-Awards.1": {
             "en": "<b>Wu Yuzhang Young Scholar, Renmin University of China</b><span>2024</span>",
@@ -367,6 +367,22 @@
         "ui.searchPlaceholder": {
             "en": "Search publications…",
             "zh": "搜索论文…"
+        },
+        "nav.admissions": {
+            "en": "Recruiting",
+            "zh": "招生信息"
+        },
+        "admissions.eyebrow": {
+            "en": "Now Recruiting",
+            "zh": "招生信息"
+        },
+        "admissions.title": {
+            "en": "Recruiting 2027 Graduate Students",
+            "zh": "2027 级研究生招生"
+        },
+        "admissions.text": {
+            "en": "Recruiting 2027-entry full-time Ph.D., full-time Doctor of Engineering, and academic / professional Master's students. Looking for students interested in building foundational software testing systems, coding agents, and AI infrastructure.",
+            "zh": "招收2027级全日制博士、全日制工程博士、学硕、专硕研究生，欢迎对构建基础软件测试系统、编程智能体、AI 基础设施等方向感兴趣的同学加入。"
         }
     };
 
