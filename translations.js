@@ -54,7 +54,7 @@
         },
         "profile.bio": {
             "en": "Shuang Liu is a Wu Yuzhang Young Scholar, Ph.D. supervisor, and associate professor at Renmin University of China. She is an executive committee member of the CCF Technical Committees on System Software and on Databases, and received her Ph.D. from the National University of Singapore. Her research focuses on complex-system testing, database testing, large-model testing, and related directions. She has published more than 70 papers in international venues such as PVLDB, ICDE, ISSTA, ESEC/FSE, ASE, ICSE, FM, USENIX Security, TSE, TOSEM, and the Journal of Software (including more than 30 CCF-A papers), and received the ESEC/FSE 2020 (CCF-A) Best Paper Award. She teaches several core computer-science courses, including Compiler Principles (Honors Course) and Software Engineering, and serves on multiple conference program committees and as a journal reviewer. She leads multiple funded projects, including an NSFC General Program grant, a subproject of a national science and technology major program, an NSFC Youth Program grant, and the CCF-Ant Joint Research Fund.",
-            "zh": "刘爽，中国人民大学吴玉章青年学者，博导、副教授。中国计算机学会系统软件专委、数据库专委执行委员，在新加坡国立大学获得博士学位。从事复杂系统测试、数据库测试、大模型测试等相关方向的研究工作。在相关领域国际会议及期刊PVLDB, ICDE, ISSTA, ESEC/FSE, ASE, ICSE, FM, USENIX Security, TSE, TOSEM, 软件学报等发表论文70余篇（其中CCF A类论文30余篇），并获得ESEC/FSE 2020 (CCF A) 最佳论文奖。主讲编译原理（荣誉课程）、软件工程等多门计算机专业核心课程。担任多个会议程序委员会委员和期刊审稿人。主持包括自科面上、重大专项子课题、青年项目，CCF-蚂蚁联合基金等在内的多项项目。"
+            "zh": "刘爽，中国人民大学吴玉章青年学者，博导、副教授。中国计算机学会系统软件专委、数据库专委执行委员，在新加坡国立大学获得博士学位。从事复杂系统测试、编程智能体构件、AI基础设施等相关方向的研究工作。在相关领域国际会议及期刊PVLDB, ICDE, ISSTA, ESEC/FSE, ASE, ICSE, FM, USENIX Security, TSE, TOSEM, 软件学报等发表论文70余篇（其中CCF A类/中文T1论文40余篇），并获得ESEC/FSE 2020 (CCF A) 最佳论文奖。主讲编译原理（荣誉课程）、软件工程等多门计算机专业核心课程。担任多个会议程序委员会委员和期刊审稿人。主持包括自科面上、重大专项子课题、青年项目，CCF-蚂蚁联合基金等在内的多项项目。"
         },
         "heading.News": {
             "en": "News",
@@ -367,22 +367,6 @@
         "ui.searchPlaceholder": {
             "en": "Search publications…",
             "zh": "搜索论文…"
-        },
-        "nav.admissions": {
-            "en": "Recruiting",
-            "zh": "招生信息"
-        },
-        "admissions.eyebrow": {
-            "en": "Now Recruiting",
-            "zh": "招生信息"
-        },
-        "admissions.title": {
-            "en": "Recruiting 2027 Graduate Students",
-            "zh": "2027 级研究生招生"
-        },
-        "admissions.text": {
-            "en": "Recruiting 2027-entry full-time Ph.D., full-time Doctor of Engineering, and academic / professional Master's students. Looking for students interested in building foundational software testing systems, coding agents, and AI infrastructure.",
-            "zh": "招收2027级全日制博士、全日制工程博士、学硕、专硕研究生，欢迎对构建基础软件测试系统、编程智能体、AI 基础设施等方向感兴趣的同学加入。"
         }
     };
 
