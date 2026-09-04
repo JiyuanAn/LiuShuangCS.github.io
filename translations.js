@@ -367,6 +367,22 @@
         "ui.searchPlaceholder": {
             "en": "Search publications…",
             "zh": "搜索论文…"
+        },
+        "nav.admissions": {
+            "en": "Recruiting",
+            "zh": "招生信息"
+        },
+        "admissions.eyebrow": {
+            "en": "Now Recruiting",
+            "zh": "招生信息"
+        },
+        "admissions.title": {
+            "en": "Recruiting 2027 Graduate Students",
+            "zh": "2027 级研究生招生"
+        },
+        "admissions.text": {
+            "en": "Recruiting 2027-entry full-time Ph.D., full-time Doctor of Engineering, and academic / professional Master's students. Looking for students interested in building foundational software testing systems, coding agents, and AI infrastructure.",
+            "zh": "招收2027级全日制博士、全日制工程博士、学硕、专硕研究生，欢迎对构建基础软件测试系统、编程智能体、AI 基础设施等方向感兴趣的同学加入。"
         }
     };
 
